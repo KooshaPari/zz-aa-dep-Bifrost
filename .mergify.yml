@@ -43,7 +43,7 @@ pull_request_rules:
   # Auto-merge bot PRs (CI configs, formatting) when CI passes
   - name: Auto-merge bot housekeeping PRs
     conditions:
-      - author=trunk-io[bot] | mergify[bot] | github-actions[bot]
+      - author~=^(trunk-io|mergify|github-actions)\[bot\]$
       - check-success=ci
       - check-success=lint
       - -conflict
